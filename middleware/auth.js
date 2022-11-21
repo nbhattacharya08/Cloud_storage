@@ -1,9 +1,9 @@
 const getUsers = require('../repository/user.repository')
 const users = getUsers()
 const verifyUser = async (req , res , next) => {
-    if(req.body.username){
-        if(req.body.password){
-            const collection = users.find({username : req.body.username , password: req.body.password})
+    if(req.headers.username){
+        if(req.headers.password){
+            const collection = (await users).findOne({username : req.headers.username , password: req.headers.password})
             if(collection){
                 next()
             }
