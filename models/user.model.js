@@ -2,14 +2,14 @@ const mongoose = require('mongoose')
 const userSchema = new mongoose.Schema({
     username: {
         type: String,
-        required: true
+        required: true,
     },
-    password:{
+    password: {
         type: String,
-        required: true 
+        required: true ,
     },
     files: [{
         type: String
     }]
 })
-module.exports=mongoose.model('/users' , userSchema)
+module.exports=mongoose.model('users' , userSchema)
